@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Applier{% endblock %}
+
+{% block body %}
+    <h1>Applier</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ applier.id }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ applier.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ applier.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{ applier.age }}</td>
+            </tr>
+            <tr>
+                <th>Height</th>
+                <td>{{ applier.height }}</td>
+            </tr>
+            <tr>
+                <th>Origin</th>
+                <td>{{ applier.origin }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('applier_index') }}">back to list</a>
+
+    <a href="{{ path('applier_edit', {'id': applier.id}) }}">edit</a>
+
+    {{ include('applier/_delete_form.html.twig') }}
+{% endblock %}

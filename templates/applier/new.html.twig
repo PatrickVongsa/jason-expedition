@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Applier{% endblock %}
+
+{% block body %}
+    <h1>Create new Applier</h1>
+
+    {{ include('applier/_form.html.twig') }}
+
+    <a href="{{ path('applier_index') }}">back to list</a>
+{% endblock %}
