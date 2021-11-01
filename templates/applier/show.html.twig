@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Applier
+{% endblock %}
+
+{% block body %}
+	<h1>Applier</h1>
+
+	<div class="row justify-content-end   my-5">
+		<a class="col-auto btn btn-secondary me-2" href="{{ path('applier_index') }}">Retour à la liste</a>
+		<a class="col-auto btn btn-primary" href="{{ path('applier_edit', {'id': applier.id}) }}">Modifier</a>
+		<div class="col-auto">
+			{{ include('applier/_delete_form.html.twig') }}
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row card">
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item d-flex">
+					<div class="col">Prénom</div>
+					<div class="col">{{ applier.firstname }}</div>
+				</li>
+				<li class="list-group-item d-flex">
+					<div class="col">Nom</div>
+					<div class="col">{{ applier.lastname }}</div>
+				</li>
+				<li class="list-group-item d-flex">
+					<div class="col">Age</div>
+					<div class="col">{{ applier.age }}</div>
+				</li>
+				<li class="list-group-item d-flex">
+					<div class="col">Genre</div>
+					<div class="col">{{ applier.gender }}</div>
+				</li>
+				<li class="list-group-item d-flex">
+					<div class="col">Taille (cm)</div>
+					<div class="col">{{ applier.height }}</div>
+				</li>
+				<li class="list-group-item d-flex">
+					<div class="col">Origine</div>
+					<div class="col">{{ applier.origin }}</div>
+				</li>
+				<li class="list-group-item d-flex">
+					<div class="col">Métier</div>
+					<div class="col">{{ applier.profession }}</div>
+				</li>
+				<li class="list-group-item d-flex">
+					<div class="col">Compétence au combat</div>
+					<div class="col">{{ applier.warriorSkill }}</div>
+				</li>
+				<li class="list-group-item d-flex">
+					<div class="col">Compétence en navigation</div>
+					<div class="col">{{ applier.navigationSkill }}</div>
+				</li>
+				<li class="list-group-item d-flex">
+					<div class="col">Arme de prédilection</div>
+					<div class="col">{{ applier.weapon }}</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+{% endblock %}
+

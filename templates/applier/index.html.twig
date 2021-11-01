@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des équipiers
+{% endblock %}
+
+{% block body %}
+	<h1 class="mt-2 ms-3">Liste des équipiers</h1>
+
+    <div class="row justify-content-end">
+	    <a class="col-auto btn btn-primary my-3 me-4" href="{{ path('applier_new') }}">Créer un nouvel équiper</a>
+    </div>
+    
+	<ul class="list-group">
+		<li class="list-group-item d-flex fw-bold">
+			<div class="col">Prénom</div>
+			<div class="col">Nom</div>
+			<div class="col">Genre</div>
+			<div class="col">Age</div>
+			<div class="col">Taille (cm)</div>
+			<div class="col">Origine</div>
+			<div class="col">Métier</div>
+			<div class="col">Exp. combat</div>
+			<div class="col">Exp. navigation</div>
+			<div class="col">Arme</div>
+			<div class="col">Action</div>
+		</li>
+		{% for applier in appliers %}
+			{% include "components/list_applier.html.twig" %}
+		{% endfor %}
+	</ul>
+{% endblock %}
+
