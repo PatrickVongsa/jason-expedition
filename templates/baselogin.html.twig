@@ -16,10 +16,9 @@
 	<body>
 		<div class="container-fluid">
 			<div class="row">
-				<div class="side-menu d-flex flex-column col-2 bg-primary">
-                   {% include "components/side_menu.html.twig" %}
+				<div class="login-image col" style="background-image: url('build/images/coast.jpg'); background-position: center;">
 				</div>
-				<div class="main-page col-10">{# contenu #}
+				<div class="col d-flex flex-column justify-content-center align-items-center">{# contenu #}
 					{% block body %}{% endblock %}
 				</div>
 			</div>

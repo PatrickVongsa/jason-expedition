@@ -1,20 +1,83 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block javascripts %}
+	{{ encore_entry_script_tags('chart-home-page') }}
+{% endblock %}
+
+
+{% block title %}Tableau de bord
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<h1 class="mt-2 mb-4">Tableau de bord</h1>
+	<div class="container-fluid">
+		<div class="row  my-3">
+			<div class="col card me-3">
+                <img src="{{ asset('build/images/people.png') }}" class="card-img-top img-dashboard" alt="Image représentant plusieurs personnes">
+				<div class="card-body text-center">
+                {% set textColor = '' %}
+                {% if equipiers > 50 %}
+                    {% set textColor = 'text-danger' %}
+                {% endif %}
+					Nombre d'équipiers : <span class="fw-bold {{ textColor }}">{{ equipiers }}</span>
+				</div>
+			</div>
+			<div class="col card me-3">
+                <img src="{{ asset('build/images/capacity.png') }}" class="card-img-top img-dashboard" alt="Image représentant une capacité">
+				<div class="card-body text-center">
+					Capacité du navire : <span class="fw-bold">50</span>
+				</div>
+			</div>
+			<div class="col card me-3">
+                <img src="{{ asset('build/images/shield.png') }}" class="card-img-top img-dashboard" alt="Image représentant un bouclier de héros">
+				<div class="card-body text-center">
+					Nombre de Héros : <span class="fw-bold">{{ heros }}</span>
+				</div>
+			</div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+			<div class="col card me-3">
+                <img src="{{ asset('build/images/warrior.png') }}" class="card-img-top img-dashboard" alt="Image représentant un casque de guerrier">
+				<div class="card-body text-center">
+					Nombre de Guerriers : <span class="fw-bold">{{ warriors }}</span>
+				</div>
+			</div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/patrick/wild/test technique alternance/wild/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/patrick/wild/test technique alternance/wild/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
+			<div class="col card">
+                <img src="{{ asset('build/images/helm.png') }}" class="card-img-top img-dashboard" alt="Image représentant roue de navigation">
+				<div class="card-body text-center">
+					Nombre de Navigateurs : <span class="fw-bold">{{ navigators }}</span>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col card me-3">
+				<canvas id="myChart" height="250px"></canvas>
+			</div>
+			<div class="col-4 w-25 card">
+				<canvas id="myChart2" height="250px"></canvas>
+			</div>
+		</div>
+        <div class="row mt-5">
+			<div class="col me-3">
+				<h2 class="mt-2 mb-4">Gestion des équipiers</h2>
+                <div class="row">
+                <a class="col-auto btn btn-secondary me-3" href="{{ path('applier_index') }}">
+				<i class="bi bi-people-fill"></i>
+				Voir la liste des équipiers</a>
+                    <a class="col-auto btn btn-secondary" href="{{ path('applier_new') }}">
+				<i class="bi bi-person-plus-fill"></i>
+				Créer un nouvel équipier</a>
+                </div>
+			</div>
+			<div class="col-5">
+				<h2 class="mt-2 mb-4">Constituer mon équipage</h2>
+                <div class="row">
+                <a class="col-auto btn btn-secondary" href="#" onclick="alert('Fonctionnalité en cours de développement')">
+				<i class="bi bi-list-check"></i>
+				Etablir mon equipage</a>
+                </div>
+			</div>
+		</div>
+	</div>
 {% endblock %}
+

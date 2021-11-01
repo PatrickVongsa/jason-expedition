@@ -1,13 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Applier{% endblock %}
+{% block title %}Modifier un équipier{% endblock %}
 
 {% block body %}
-    <h1>Edit Applier</h1>
+    <h1  class="mt-2 ms-3">Modifier un équipier</h1>
 
-    {{ include('applier/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('applier_index') }}">back to list</a>
-
-    {{ include('applier/_delete_form.html.twig') }}
+    <div class="row justify-content-end   my-5">
+        <a class="col-auto btn btn-secondary me-2" href="{{ path('applier_index') }}">Retour à la liste</a>
+        <div class="col-auto">
+            {{ include('applier/_delete_form.html.twig') }}
+        </div>
+    </div>
+    <div class="row">
+    {{ include('applier/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+    </div>
 {% endblock %}

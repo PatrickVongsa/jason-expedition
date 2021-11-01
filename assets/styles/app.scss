@@ -7,11 +7,18 @@ body {
     color: #55505C;
 }
 
-.side-menu {
+.side-menu, .login-image {
     height: 100vh;
 }
 
 .main-page {
     height: 100vh;
     overflow: scroll;
+}
+
+.img-dashboard {
+    display: block;
+    margin: 10px auto;
+    width: 60px;
+    height: 60px;
 }

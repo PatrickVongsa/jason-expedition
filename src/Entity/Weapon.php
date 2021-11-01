@@ -83,6 +83,6 @@ class Weapon
 
     public function __toString()
     {
-        return $this->experience;
+        return $this->weapon;
     }
 }

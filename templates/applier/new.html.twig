@@ -1,11 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Applier{% endblock %}
+{% block title %}Créer un nouvel équipier{% endblock %}
 
 {% block body %}
-    <h1>Create new Applier</h1>
+    <h1 class="mt-2 ms-3">Créer un nouvel équipier</h1>
+
+    <div class="row justify-content-end">
+        <a class="col-auto btn btn-secondary  my-3 me-4" href="{{ path('applier_index') }}">Retour à la liste</a>
+    </div>
 
     {{ include('applier/_form.html.twig') }}
 
-    <a href="{{ path('applier_index') }}">back to list</a>
 {% endblock %}

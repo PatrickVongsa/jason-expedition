@@ -83,6 +83,6 @@ class Gender
     
     public function __toString()
     {
-        return $this->experience;
+        return $this->gender;
     }
 }

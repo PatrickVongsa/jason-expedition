@@ -83,6 +83,6 @@ class Profession
 
     public function __toString()
     {
-        return $this->experience;
+        return $this->profession;
     }
 }
