@@ -80,4 +80,9 @@ class Weapon
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->experience;
+    }
 }

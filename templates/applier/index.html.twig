@@ -1,43 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Applier index{% endblock %}
+{% block title %}Liste des équipiers
+{% endblock %}
 
 {% block body %}
-    <h1>Applier index</h1>
+	<h1 class="mt-2 ms-3">Liste des équipiers</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Age</th>
-                <th>Height</th>
-                <th>Origin</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for applier in appliers %}
-            <tr>
-                <td>{{ applier.id }}</td>
-                <td>{{ applier.firstname }}</td>
-                <td>{{ applier.lastname }}</td>
-                <td>{{ applier.age }}</td>
-                <td>{{ applier.height }}</td>
-                <td>{{ applier.origin }}</td>
-                <td>
-                    <a href="{{ path('applier_show', {'id': applier.id}) }}">show</a>
-                    <a href="{{ path('applier_edit', {'id': applier.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('applier_new') }}">Create new</a>
+    <div class="row justify-content-end">
+	    <a class="col-auto btn btn-primary my-3 me-4" href="{{ path('applier_new') }}">Créer un nouvel équiper</a>
+    </div>
+    
+	<ul class="list-group">
+		<li class="list-group-item d-flex fw-bold">
+			<div class="col">Prénom</div>
+			<div class="col">Nom</div>
+			<div class="col">Genre</div>
+			<div class="col">Age</div>
+			<div class="col">Taille (cm)</div>
+			<div class="col">Origine</div>
+			<div class="col">Métier</div>
+			<div class="col">Exp. combat</div>
+			<div class="col">Exp. navigation</div>
+			<div class="col">Arme</div>
+			<div class="col">Action</div>
+		</li>
+		{% for applier in appliers %}
+			{% include "components/list_applier.html.twig" %}
+		{% endfor %}
+	</ul>
 {% endblock %}
+
