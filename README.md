@@ -5,5 +5,5 @@
 3. symfony console doctrine:database:create
 4. symfony console doctrine:migrations:migrate
 5. symfony console d:f:l
-6. yan dev
-7. symfony serve
+6. yarn dev
+7. symfony server:start
