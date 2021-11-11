@@ -8,7 +8,7 @@
 			{% endblock %}
 		</title>
 		{# Run `composer require symfony/webpack-encore-bundle`
-						           and uncomment the following Encore helpers to start using Symfony UX #}
+																           and uncomment the following Encore helpers to start using Symfony UX #}
 		{{ encore_entry_link_tags('app') }}
 		{% block stylesheets %}{% endblock %}
 
@@ -16,48 +16,45 @@
 	<body>
 		<div class="container-fluid">
 			<div class="row">
-				<div class="side-menu d-flex flex-column col-lg-2 bg-primary d-none d-lg-block">
-					{% include "components/side_menu.html.twig" %}
+				<div class="d-none d-lg-block col-2 px-0">
+					<div class="side-menu d-flex flex-column bg-primary">
+						{% include "components/side_menu.html.twig" %}
+					</div>
 				</div>
-				<div class="main-page col-12 col-lg-10 px-0 px-lg-1">
+				<div class="main-page col-12 col-lg-10 px-0">
 					<nav class="navbar navbar-expand-lg navbar-dark bg-primary d-lg-none">
-						<div class="container-fluid">
-							<a class="navbar-brand" href="#">
-								{% if app.user %}Jason
-								{% endif %}
-							</a>
-							<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-								<span class="navbar-toggler-icon"></span>
-							</button>
-							<div class="collapse navbar-collapse" id="navbarSupportedContent">
-								<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-									<li class="nav-item">
-										<a class="nav-link link-secondary text-light" href="{{ path('app_home') }}">
-											<i class="bi bi-house-door-fill"></i>
-											Tableau de bord</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link link-secondary text-light" href="{{ path('applier_new') }}">
-											<i class="bi bi-person-plus-fill"></i>
-											Créer un nouvel équipier</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link link-secondary text-light" href="{{ path('applier_index') }}">
-											<i class="bi bi-people-fill"></i>
-											Voir la liste des équipiers</a>
-									</li>
-								</ul>
-							</div>
+						<a class="navbar-brand ms-3" href="#">
+							{% if app.user %}Jason
+							{% endif %}
+						</a>
+						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<ul class="navbar-nav mx-2 mb-2 mb-lg-0">
+								<li class="nav-item">
+									<a class="nav-link link-secondary text-light" href="{{ path('app_home') }}">
+										<i class="bi bi-house-door-fill"></i>
+										Tableau de bord</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link link-secondary text-light" href="{{ path('applier_new') }}">
+										<i class="bi bi-person-plus-fill"></i>
+										Créer un nouvel équipier</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link link-secondary text-light" href="{{ path('applier_index') }}">
+										<i class="bi bi-people-fill"></i>
+										Voir la liste des équipiers</a>
+								</li>
+							</ul>
 						</div>
 					</nav>
 					{% block body %}{% endblock %}
 				</div>
 			</div>
-
 		</div>
-
 		{{ encore_entry_script_tags('app') }}
 		{% block javascripts %}{% endblock %}
 	</body>
 </html>
-
