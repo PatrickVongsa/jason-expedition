@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ApplierRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ApplierRepository::class)
@@ -19,26 +20,34 @@ class Applier
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Merci de renseigner votre prénom")
+     * @Assert\Length(max="255", maxMessage="Le prénom saisie {{ value }} est trop long, elle ne devrait pas dépasser {{ limit }}")
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Merci de renseigner votre nom")
+     * @Assert\Length(max="255", maxMessage="Le nom saisie {{ value }} est trop long, elle ne devrait pas dépasser {{ limit }}")
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Merci de renseigner votre age")
      */
     private $age;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Merci de renseigner votre taille en cm")
      */
     private $height;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Merci de renseigner votre origine")
+     * @Assert\Length(max="255", maxMessage="L'oringine' saisie {{ value }} est trop long, elle ne devrait pas dépasser {{ limit }}")
      */
     private $origin;
 
