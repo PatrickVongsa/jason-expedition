@@ -16,13 +16,20 @@ class ApplierFixtures extends Fixture implements DependentFixtureInterface
     {
         $this->faker = Factory::create();
 
+        $gender=$this->getReference('gender_' . rand(0, 1));
+        if($gender == 'gender_0'){
+            $genderName = 'male';
+        }else {
+            $genderName = 'female';
+        }
+
         for ($i = 0; $i < 10; $i++) {
             $applier = new Applier();
             $applier
-                ->setFirstname($this->faker->firstName())
+                ->setFirstname($this->faker->firstName($genderName))
                 ->setLastname($this->faker->lastName())
                 ->setAge($this->faker->numberBetween(15, 28))
-                ->setGender($this->getReference('gender_' . rand(0, 1)))
+                ->setGender($gender)
                 ->setHeight($this->faker->numberBetween(180, 210))
                 ->setOrigin('Grèce')
                 ->setProfession($this->getReference('profession_0'))
@@ -35,10 +42,10 @@ class ApplierFixtures extends Fixture implements DependentFixtureInterface
         for ($i = 0; $i < 140; $i++) {
             $applier = new Applier();
             $applier
-                ->setFirstname($this->faker->firstName())
+                ->setFirstname($this->faker->firstName($genderName))
                 ->setLastname($this->faker->lastName())
                 ->setAge($this->faker->numberBetween(15, 28))
-                ->setGender($this->getReference('gender_' . rand(0, 1)))
+                ->setGender($gender)
                 ->setHeight($this->faker->numberBetween(150, 210))
                 ->setOrigin('Grèce')
                 ->setProfession($this->getReference('profession_' . rand(1, 2)))

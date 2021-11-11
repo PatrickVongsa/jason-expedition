@@ -8,7 +8,7 @@ use Doctrine\Persistence\ObjectManager;
 
 class ProfessionFixtures extends Fixture
 {
-    public const DATA = ['Héro', 'Guerrier', 'Navigateur'];
+    public const DATA = ['Héros', 'Guerrier', 'Navigateur'];
 
     public function load(ObjectManager $manager): void
     {
