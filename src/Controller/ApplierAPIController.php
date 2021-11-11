@@ -7,11 +7,13 @@ use App\Repository\ApplierRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use phpDocumentor\Reflection\DocBlock\Tags\Var_;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/applier')]
+#[IsGranted("ROLE_ADMIN")]
 class ApplierAPIController extends AbstractController
 {
     #[Route('/api/age', name: 'applier_api_age', methods: ['GET'])]

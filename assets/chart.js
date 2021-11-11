@@ -72,7 +72,7 @@ axios.get('/applier/api/age')
         data: {
             labels: ['15-17', '18-20', '21-23', '24-26', '27-29'],
             datasets: [{
-                label: 'Nombre d\'équipier en fonction de l\'âge',
+                label: 'Nombre d\'équipiers en fonction de l\'âge',
                 data: response.data,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',

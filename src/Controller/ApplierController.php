@@ -35,6 +35,8 @@ class ApplierController extends AbstractController
             $entityManager->persist($applier);
             $entityManager->flush();
 
+            $this->addFlash('success', 'L\'équipier a été créé.');
+
             return $this->redirectToRoute('applier_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -61,6 +63,8 @@ class ApplierController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success', 'L\'équipier a été mis à jour.');
+
             return $this->redirectToRoute('applier_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -77,6 +81,8 @@ class ApplierController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($applier);
             $entityManager->flush();
+
+            $this->addFlash('success', 'L\'équipier a été supprimé.');
         }
 
         return $this->redirectToRoute('applier_index', [], Response::HTTP_SEE_OTHER);

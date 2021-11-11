@@ -9,6 +9,14 @@
 {% endblock %}
 
 {% block body %}
+	{% for category, messages in app.flashes %}
+		{% for message in messages %}
+			<div class="alert alert-{{ category }}  alert-dismissible fade show">
+				{{ message }}
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+		{% endfor %}
+	{% endfor %}
 	<h1 class="mt-2 mb-4">Tableau de bord</h1>
 	<div class="container-fluid">
 		<div class="row  my-3">
@@ -19,33 +27,33 @@
                 {% if equipiers > 50 %}
                     {% set textColor = 'text-danger' %}
                 {% endif %}
-					Nombre d'équipiers : <span class="fw-bold {{ textColor }}">{{ equipiers }}</span>
+					Nombre d'équipiers<br/><span class="fw-bold {{ textColor }}">{{ equipiers }}</span>
 				</div>
 			</div>
 			<div class="col card me-3">
                 <img src="{{ asset('build/images/capacity.png') }}" class="card-img-top img-dashboard" alt="Image représentant une capacité">
 				<div class="card-body text-center">
-					Capacité du navire : <span class="fw-bold">50</span>
+					Capacité du navire<br/><span class="fw-bold">50</span>
 				</div>
 			</div>
 			<div class="col card me-3">
                 <img src="{{ asset('build/images/shield.png') }}" class="card-img-top img-dashboard" alt="Image représentant un bouclier de héros">
 				<div class="card-body text-center">
-					Nombre de Héros : <span class="fw-bold">{{ heros }}</span>
+					Nombre de Héros<br/><span class="fw-bold">{{ heros }}</span>
 				</div>
 			</div>
 
 			<div class="col card me-3">
                 <img src="{{ asset('build/images/warrior.png') }}" class="card-img-top img-dashboard" alt="Image représentant un casque de guerrier">
 				<div class="card-body text-center">
-					Nombre de Guerriers : <span class="fw-bold">{{ warriors }}</span>
+					Nombre de Guerriers<br/><span class="fw-bold">{{ warriors }}</span>
 				</div>
 			</div>
 
 			<div class="col card">
                 <img src="{{ asset('build/images/helm.png') }}" class="card-img-top img-dashboard" alt="Image représentant roue de navigation">
 				<div class="card-body text-center">
-					Nombre de Navigateurs : <span class="fw-bold">{{ navigators }}</span>
+					Nombre de Navigateurs<br/><span class="fw-bold">{{ navigators }}</span>
 				</div>
 			</div>
 		</div>
@@ -67,14 +75,6 @@
                     <a class="col-auto btn btn-secondary" href="{{ path('applier_new') }}">
 				<i class="bi bi-person-plus-fill"></i>
 				Créer un nouvel équipier</a>
-                </div>
-			</div>
-			<div class="col-5">
-				<h2 class="mt-2 mb-4">Constituer mon équipage</h2>
-                <div class="row">
-                <a class="col-auto btn btn-secondary" href="#" onclick="alert('Fonctionnalité en cours de développement')">
-				<i class="bi bi-list-check"></i>
-				Etablir mon equipage</a>
                 </div>
 			</div>
 		</div>
