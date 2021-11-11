@@ -17,65 +17,66 @@
 			</div>
 		{% endfor %}
 	{% endfor %}
-	<h1 class="mt-2 mb-4">Tableau de bord</h1>
+	<h1 class="mt-2 mb-4 ms-3">Tableau de bord</h1>
 	<div class="container-fluid">
 		<div class="row  my-3">
-			<div class="col card me-3">
-                <img src="{{ asset('build/images/people.png') }}" class="card-img-top img-dashboard" alt="Image représentant plusieurs personnes">
+			<div class="col-12 col-md card me-md-2 me-lg-3 mb-1 mb-lg-0">
+				<img src="{{ asset('build/images/people.png') }}" class="card-img-top img-dashboard" alt="Image représentant plusieurs personnes">
 				<div class="card-body text-center">
-                {% set textColor = '' %}
-                {% if equipiers > 50 %}
-                    {% set textColor = 'text-danger' %}
-                {% endif %}
+					{% set textColor = '' %}
+					{% if equipiers > 50 %}
+						{% set textColor = 'text-danger' %}
+					{% endif %}
 					Nombre d'équipiers<br/><span class="fw-bold {{ textColor }}">{{ equipiers }}</span>
 				</div>
 			</div>
-			<div class="col card me-3">
-                <img src="{{ asset('build/images/capacity.png') }}" class="card-img-top img-dashboard" alt="Image représentant une capacité">
+			<div class="col-12 col-md card me-md-2 me-lg-3 mb-1 mb-lg-0">
+				<img src="{{ asset('build/images/capacity.png') }}" class="card-img-top img-dashboard" alt="Image représentant une capacité">
 				<div class="card-body text-center">
 					Capacité du navire<br/><span class="fw-bold">50</span>
 				</div>
 			</div>
-			<div class="col card me-3">
-                <img src="{{ asset('build/images/shield.png') }}" class="card-img-top img-dashboard" alt="Image représentant un bouclier de héros">
+			<div class="col-12 col-md card me-md-2 me-lg-3 mb-1 mb-lg-0">
+				<img src="{{ asset('build/images/shield.png') }}" class="card-img-top img-dashboard" alt="Image représentant un bouclier de héros">
 				<div class="card-body text-center">
 					Nombre de Héros<br/><span class="fw-bold">{{ heros }}</span>
 				</div>
 			</div>
 
-			<div class="col card me-3">
-                <img src="{{ asset('build/images/warrior.png') }}" class="card-img-top img-dashboard" alt="Image représentant un casque de guerrier">
+			<div class="col-12 col-md card me-md-2 me-lg-3 mb-1 mb-lg-0">
+				<img src="{{ asset('build/images/warrior.png') }}" class="card-img-top img-dashboard" alt="Image représentant un casque de guerrier">
 				<div class="card-body text-center">
 					Nombre de Guerriers<br/><span class="fw-bold">{{ warriors }}</span>
 				</div>
 			</div>
 
-			<div class="col card">
-                <img src="{{ asset('build/images/helm.png') }}" class="card-img-top img-dashboard" alt="Image représentant roue de navigation">
+			<div class="col-12 col-md card mb-1 mb-lg-0">
+				<img src="{{ asset('build/images/helm.png') }}" class="card-img-top img-dashboard" alt="Image représentant roue de navigation">
 				<div class="card-body text-center">
 					Nombre de Navigateurs<br/><span class="fw-bold">{{ navigators }}</span>
 				</div>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col card me-3">
-				<canvas id="myChart" height="250px"></canvas>
+			<div class="col-12 col-md card me-3 mb-1 mb-lg-0">
+				<canvas id="myChart" height="350px"></canvas>
 			</div>
-			<div class="col-4 w-25 card">
-				<canvas id="myChart2" height="250px"></canvas>
+			<div class="col-12 col-md-4 col-lg-3 card mb-1 mb-lg-0">
+				<canvas id="myChart2"></canvas>
 			</div>
 		</div>
-        <div class="row mt-5">
+		<div class="row mt-5">
 			<div class="col me-3">
 				<h2 class="mt-2 mb-4">Gestion des équipiers</h2>
-                <div class="row">
-                <a class="col-auto btn btn-secondary me-3" href="{{ path('applier_index') }}">
-				<i class="bi bi-people-fill"></i>
-				Voir la liste des équipiers</a>
-                    <a class="col-auto btn btn-secondary" href="{{ path('applier_new') }}">
-				<i class="bi bi-person-plus-fill"></i>
-				Créer un nouvel équipier</a>
-                </div>
+				<div class="row">
+					<a class="col-auto btn btn-secondary mt-1 me-3" href="{{ path('applier_index') }}">
+						<i class="bi bi-people-fill"></i>
+						Voir la liste des équipiers</a>
+					<a class="col-auto btn btn-secondary mt-1" href="{{ path('applier_new') }}">
+						<i class="bi bi-person-plus-fill"></i>
+						Créer un nouvel équipier</a>
+				</div>
+				<div class="mb-4"></div>
 			</div>
 		</div>
 	</div>
