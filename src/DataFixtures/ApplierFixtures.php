@@ -16,14 +16,13 @@ class ApplierFixtures extends Fixture implements DependentFixtureInterface
     {
         $this->faker = Factory::create();
 
-        $gender=$this->getReference('gender_' . rand(0, 1));
-        if($gender == 'gender_0'){
+        for ($i = 0; $i < 10; $i++) {
+            $gender = $this->getReference('gender_' . rand(0, 1));
+        if($gender == $this->getReference('gender_0')){
             $genderName = 'male';
         }else {
             $genderName = 'female';
         }
-
-        for ($i = 0; $i < 10; $i++) {
             $applier = new Applier();
             $applier
                 ->setFirstname($this->faker->firstName($genderName))
@@ -40,6 +39,12 @@ class ApplierFixtures extends Fixture implements DependentFixtureInterface
         }
 
         for ($i = 0; $i < 140; $i++) {
+            $gender = $this->getReference('gender_' . rand(0, 1));
+            if($gender == $this->getReference('gender_0')){
+                $genderName = 'male';
+            }else {
+                $genderName = 'female';
+            }
             $applier = new Applier();
             $applier
                 ->setFirstname($this->faker->firstName($genderName))
